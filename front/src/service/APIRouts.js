@@ -1,7 +1,7 @@
 const URLAPI ={
-  URL: 'https://api-central-de-erros-java.herokuapp.com/',
+  URL: 'https://api-central-de-erros-java.herokuapp.com',
   GETTOKEN: (email, password) =>
-    `oauth/token?grant_type=password&username=${email}&password=${password}`,
+    `/oauth/token?grant_type=password&username=${email}&password=${password}`,
   USER: '/user',
   EVENTS: '/events',
   EVENTS_ID: (id) => `/events/${id}`,
@@ -11,7 +11,6 @@ const URLAPI ={
   EVENTS_LOG: (log) => `/events/log/${log}`,
   EVENTS_ORIGIN: (origin) => `/events/origin/${origin}	`,
   USER_ID: (id) => `/user/${id}`,
-
 }
 
 export default URLAPI;
