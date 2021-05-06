@@ -1,0 +1,1 @@
+# API-central-de-erros-front
