@@ -2,8 +2,6 @@ import React from 'react';
 
 export default function Filters() {
   return (
-    <div>
-      
-    </div>
-  )
+    <h1>Filtro</h1>
+  );
 }
