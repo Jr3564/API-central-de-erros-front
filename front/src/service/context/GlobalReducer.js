@@ -9,7 +9,6 @@ function GlobalReducer(state, action) {
   case actionType.SUBMIT_LOGIN:
     return { ...state, isFetching: true };
   case actionType.SUCCESS_LOGIN:
-    console.log(action.payload)
     return { ...state, token: action.payload, isFetching: false };
   case actionType.FAIL_LOGIN:
     return { ...state, errorMessage: action.payload, isFetching: false };

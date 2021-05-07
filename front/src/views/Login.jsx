@@ -1,5 +1,6 @@
 import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { userDataValidation, APIRouts } from '../service';
+import { Loading } from '../components';
 import { useHistory } from "react-router-dom";
 import { GlobalContext, actionType } from '../service/context';
 import axios from 'axios';
@@ -27,6 +28,7 @@ export default function Login() {
     });
 
     dispatch({ type: actionType.SUBMIT_LOGIN });
+    
     api.get(APIRouts.GETTOKEN(user.email, user.password))
       .then(({ data }) => {
         dispatch({ type: actionType.SUCCESS_LOGIN, payload: data.access_token });
@@ -37,7 +39,7 @@ export default function Login() {
 
   return (
     GlobalState.isFatching
-      ? <h1>Loading...</h1>
+      ? <Loading />
       : (
         <div>
           <label htmlFor="email">

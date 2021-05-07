@@ -5,7 +5,7 @@ const URLAPI ={
   USER: '/user',
   EVENTS: '/events',
   EVENTS_ID: (id) => `/events/${id}`,
-  EVENTS_LEVEL_COUNT_QUANTITY: (level) => `/events/level/count/${level}`,
+  EVENTS_LEVEL_COUNT_QUANTITY: (level) => `/events/count/${level}`,
   EVENTS_DATE: (date) => `/events/date/${date}`,
   EVENTS_LEVEL: (level) => `/events/level/${level}`,
   EVENTS_LOG: (log) => `/events/log/${log}`,

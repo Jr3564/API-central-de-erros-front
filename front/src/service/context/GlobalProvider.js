@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import { GlobalReducer } from './GlobalReducer';
 import GlobalContext from './GlobalContext';
 
-const initialState = { errorMessage: '', token: '', isFetching: false };
+const initialState = {};
 
 export default function GlobalProvider({ children }) {
   const [GlobalState, dispatch] = useReducer(GlobalReducer, initialState);
-
+  
   return (
     <GlobalContext.Provider value={ { dispatch, GlobalState } }>
       {children}
@@ -16,5 +16,5 @@ export default function GlobalProvider({ children }) {
 }
 
 GlobalProvider.propTypes = {
-  children: PropTypes.arrayOf(PropTypes.element).isRequired,
+  children: PropTypes.shape(PropTypes.element.isRequired).isRequired,
 };
