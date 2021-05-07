@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
-export default function useFetchApi({email, password}) {
+export default function useFetchApi(URI, body = '') {
   const [state, setResult] = useState({ loading: true, results: {} });
   useEffect(() => {
     const api = axios.create({
@@ -11,7 +11,7 @@ export default function useFetchApi({email, password}) {
         password: 'secret-id',
       },
     });
-    api.get(`oauth/token?grant_type=password&username=${email}&password=${password}`)
+    api.get(URI, body)
       .then(({ data }) => setResult((states) => ({ ...states, results: data })))
       .catch((error) =>  { throw error } );
   }, [URL]);

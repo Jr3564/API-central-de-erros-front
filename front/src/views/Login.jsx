@@ -1,47 +1,43 @@
-import React, { useCallback, useContext, useEffect, useState } from 'react';
-import { userDataValidation, APIRouts } from '../service';
-import { Loading } from '../components';
+import React, { useCallback, useState } from 'react';
+import { userDataValidation, APIRouts, localStorageP, fetchApi } from '../service';
+import { Loading, Message } from '../components';
 import { useHistory } from "react-router-dom";
-import { GlobalContext, actionType } from '../service/context';
-import axios from 'axios';
 
 const validation = ({ email, password }) => (
   userDataValidation.email(email) && userDataValidation.password(password)
 );
 
 export default function Login() {
-  const [user, setUser] = useState({});
-  const { GlobalState, dispatch } = useContext(GlobalContext);
+  const INITIAL_STATE = { email: "", password: "", isLoading: false, errorUser: false }
+  const [state, setState] = useState(INITIAL_STATE);
   const history = useHistory();
+  const { email, password } = state;
 
   const handleState = useCallback(({ target: { value, id } }) => {
-    setUser((state) => ({ ...state, [id]: value }));
+    setState((s) => ({ ...s, [id]: value }));
   }, []);
+  
+  const loginUser = () => {
+    setState((s) => ({ ...s, isLoading: true }));
 
-  const fetchToken = () => {
-    const api = axios.create({
-      baseURL: APIRouts.URL,
-      auth: {
-        username: 'client-id',
-        password: 'secret-id',
-      },
+    fetchApi(APIRouts.GETTOKEN(email, password))
+    .then(({ data }) => {
+      localStorageP.setStorage('token', data);
+      setState((s) => ({ ...s, isLoading: false, errorUser: !s.errorUser }));
+      history.push('/dashboard');
+    })
+    .catch((error) => {
+      setState((s) => ({ ...s, isLoading: false, errorUser: !s.errorUser }));
+      console.log(error);
     });
-
-    dispatch({ type: actionType.SUBMIT_LOGIN });
-    
-    api.get(APIRouts.GETTOKEN(user.email, user.password))
-      .then(({ data }) => {
-        dispatch({ type: actionType.SUCCESS_LOGIN, payload: data.access_token });
-        history.push('/dashboard');
-      })
-      .catch((error) => console.log(error));
   }
 
   return (
-    GlobalState.isFatching
+    state.isLoading
       ? <Loading />
       : (
         <div>
+          { state.errorUser && <Message message="Dados inválidos!" className="error" /> }
           <label htmlFor="email">
             Email
             <input
@@ -61,8 +57,8 @@ export default function Login() {
           <button
             data-testid="signin-btn"
             type="submit"
-            disabled={ !validation(user) }
-            onClick={ fetchToken }
+            disabled={ !validation({ email, password }) }
+            onClick={ loginUser }
           >
             Entrar
           </button>
