@@ -7,9 +7,9 @@ const initialState = {};
 
 export default function GlobalProvider({ children }) {
   const [GlobalState, dispatch] = useReducer(GlobalReducer, initialState);
-  
+
   return (
-    <GlobalContext.Provider value={ { dispatch, GlobalState } }>
+    <GlobalContext.Provider value={{ dispatch, GlobalState }}>
       {children}
     </GlobalContext.Provider>
   );

@@ -1,4 +1,3 @@
-const SIX = 6;
 const twelve = 12;
 const contain = {
   numbers: /\d/,

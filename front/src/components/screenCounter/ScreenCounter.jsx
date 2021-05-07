@@ -15,9 +15,8 @@ export default function ScreenCounter({ level }) {
       },
     };
 
-    fetchApi(APIRouts.EVENTS_LEVEL_COUNT_QUANTITY(level), body)
-      .then(({ data }) => setCount(data))
-      .catch((error) => console.log(error));
+    fetchApi.get(APIRouts.EVENTS_LEVEL_COUNT_QUANTITY(level), body)
+      .then(({ data }) => setCount(data));
   }, []);
 
   return (

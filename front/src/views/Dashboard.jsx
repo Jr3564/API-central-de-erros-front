@@ -1,6 +1,6 @@
 import React from 'react';
 import { ScreenCounter } from '../components';
-import './dashboard.css'
+import './dashboard.css';
 
 export default function Dashboard() {
   return (
@@ -11,5 +11,5 @@ export default function Dashboard() {
         <ScreenCounter level="info" />
       </div>
     </div>
-  )
+  );
 }

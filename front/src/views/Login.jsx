@@ -18,21 +18,24 @@ export default function Login() {
   const { email, password } = state;
 
   const handleState = useCallback(({ target: { value, id } }) => {
-    setState((s) => ({ ...s, [id]: value }));
+    setState((lastState) => ({ ...lastState, [id]: value }));
   }, []);
 
   const loginUser = () => {
-    setState((s) => ({ ...s, isLoading: true }));
+    setState((lastState) => ({ ...lastState, isLoading: true }));
 
-    fetchApi(APIRouts.GETTOKEN(email, password))
+    fetchApi.get(APIRouts.GETTOKEN(email, password))
       .then(({ data }) => {
         localStorageP.setStorage('token', data);
-        setState((s) => ({ ...s, isLoading: false, errorUser: !s.errorUser }));
+        setState((lastState) => (
+          { ...lastState, isLoading: false, errorUser: !lastState.errorUser }
+        ));
         history.push('/dashboard');
       })
-      .catch((error) => {
-        setState((s) => ({ ...s, isLoading: false, errorUser: !s.errorUser }));
-        console.log(error);
+      .catch(() => {
+        setState((lastState) => (
+          { ...lastState, isLoading: false, errorUser: !lastState.errorUser }
+        ));
       });
   };
 
