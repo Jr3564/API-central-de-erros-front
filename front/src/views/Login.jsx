@@ -1,68 +1,75 @@
 import React, { useCallback, useState } from 'react';
 import { userDataValidation, APIRouts, localStorageP, fetchApi } from '../service';
 import { Loading, Message } from '../components';
-import { useHistory } from "react-router-dom";
+import './login.css';
+import { useHistory } from 'react-router-dom';
 
-const validation = ({ email, password }) => (
-  userDataValidation.email(email) && userDataValidation.password(password)
-);
+const validation = ({ email, password }) =>
+  userDataValidation.email(email) && userDataValidation.password(password);
 
 export default function Login() {
-  const INITIAL_STATE = { email: "", password: "", isLoading: false, errorUser: false }
+  const INITIAL_STATE = { email: '', password: '', isLoading: false, errorUser: false };
   const [state, setState] = useState(INITIAL_STATE);
   const history = useHistory();
   const { email, password } = state;
 
   const handleState = useCallback(({ target: { value, id } }) => {
-    setState((s) => ({ ...s, [id]: value }));
+    setState(s => ({ ...s, [id]: value }));
   }, []);
-  
+
   const loginUser = () => {
-    setState((s) => ({ ...s, isLoading: true }));
+    setState(s => ({ ...s, isLoading: true }));
 
     fetchApi(APIRouts.GETTOKEN(email, password))
-    .then(({ data }) => {
-      localStorageP.setStorage('token', data);
-      setState((s) => ({ ...s, isLoading: false, errorUser: !s.errorUser }));
-      history.push('/dashboard');
-    })
-    .catch((error) => {
-      setState((s) => ({ ...s, isLoading: false, errorUser: !s.errorUser }));
-      console.log(error);
-    });
-  }
+      .then(({ data }) => {
+        localStorageP.setStorage('token', data);
+        setState(s => ({ ...s, isLoading: false, errorUser: !s.errorUser }));
+        history.push('/dashboard');
+      })
+      .catch(error => {
+        setState(s => ({ ...s, isLoading: false, errorUser: !s.errorUser }));
+        console.log(error);
+      });
+  };
 
-  return (
-    state.isLoading
-      ? <Loading />
-      : (
-        <div>
-          { state.errorUser && <Message message="Dados inválidos!" className="error" /> }
-          <label htmlFor="email">
-            Email
+  return state.isLoading ? (
+    <Loading />
+  ) : (
+    <div className='text-center body'>
+      <div className='form-signin'>
+        <form>
+          <h1 className='h3 mb-3 fw-normal'>Login</h1>
+          {state.errorUser && <Message message='Dados inválidos!' className='error' />}
+          <div className='form-floating'>
             <input
-              type="email"
-              id="email"
-              onChange={ handleState }
+              type='email'
+              className='form-control'
+              id='email'
+              onChange={handleState}
+              placeholder='name@example.com'
             />
-          </label>
-          <label htmlFor="password">
-            Password
+            <label htmlFor='email'>Email address</label>
+          </div>
+
+          <div className='form-floating'>
             <input
-              type="password"
-              id="password"
-              onChange={ handleState }
+              type='password'
+              className='form-control'
+              onChange={handleState}
+              id='password'
+              placeholder='Password'
             />
-          </label>
+            <label htmlFor='password'>Password</label>
+          </div>
           <button
-            data-testid="signin-btn"
-            type="submit"
-            disabled={ !validation({ email, password }) }
-            onClick={ loginUser }
-          >
+            className='w-100 btn btn-lg btn-primary'
+            type='submit'
+            disabled={!validation({ email, password })}
+            onClick={loginUser}>
             Entrar
           </button>
-        </div>
-      )
+        </form>
+      </div>
+    </div>
   );
 }
