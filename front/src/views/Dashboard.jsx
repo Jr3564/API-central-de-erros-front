@@ -10,7 +10,6 @@ export default function Dashboard() {
         <ScreenCounter level="warning" />
         <ScreenCounter level="info" />
       </div>
-
     </div>
   )
 }
