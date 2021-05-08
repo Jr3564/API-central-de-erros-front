@@ -44,32 +44,41 @@ export default function Login() {
     state.isLoading
       ? <Loading />
       : (
-        <div>
-          { state.errorUser && <Message message="Dados inválidos!" className="error" /> }
-          <label htmlFor="email">
-            Email
-            <input
-              type="email"
-              id="email"
-              onChange={handleState}
-            />
-          </label>
-          <label htmlFor="password">
-            Password
-            <input
-              type="password"
-              id="password"
-              onChange={handleState}
-            />
-          </label>
-          <button
-            data-testid="signin-btn"
-            type="submit"
-            disabled={!validation({ email, password })}
-            onClick={loginUser}
-          >
-            Entrar
-          </button>
+        <div className="text-center body">
+          <div className="form-signin">
+            <form>
+              <h1 className="h3 mb-3 fw-normal">Login</h1>
+              {state.errorUser && <Message message="Dados inválidos!" className="error" />}
+              <div className="form-floating">
+                <input
+                  type="email"
+                  className="form-control"
+                  id="email"
+                  onChange={handleState}
+                  placeholder="name@example.com"
+                />
+                <label htmlFor="email">Email address</label>
+              </div>
+              <div className="form-floating">
+                <input
+                  type="password"
+                  className="form-control"
+                  onChange={handleState}
+                  id="password"
+                  placeholder="Password"
+                />
+                <label htmlFor="password">Password</label>
+              </div>
+              <button
+                className="w-100 btn btn-lg btn-primary"
+                type="submit"
+                disabled={!validation({ email, password })}
+                onClick={loginUser}
+              >
+                Entrar
+              </button>
+            </form>
+          </div>
         </div>
       )
   );
