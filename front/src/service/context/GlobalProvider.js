@@ -3,13 +3,20 @@ import PropTypes from 'prop-types';
 import { GlobalReducer } from './GlobalReducer';
 import GlobalContext from './GlobalContext';
 
-const initialState = {};
+const initialStateAPI = {
+  events: [],
+  countForLevel: {
+    error: 0,
+    warning: 0,
+    info: 0,
+  },
+};
 
 export default function GlobalProvider({ children }) {
-  const [GlobalState, dispatch] = useReducer(GlobalReducer, initialState);
+  const [APIState, dispatch] = useReducer(GlobalReducer, initialStateAPI);
 
   return (
-    <GlobalContext.Provider value={{ dispatch, GlobalState }}>
+    <GlobalContext.Provider value={{ dispatch, APIState }}>
       {children}
     </GlobalContext.Provider>
   );

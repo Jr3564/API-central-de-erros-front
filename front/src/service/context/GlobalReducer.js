@@ -1,17 +1,14 @@
 const actionType = {
-  SUBMIT_LOGIN: 'SUBMIT_LOGIN',
-  SUCCESS_LOGIN: 'SUCCESS_LOGIN',
-  FAIL_LOGIN: 'FAIL_LOGIN',
+  UPDATE_EVENTS: 'UPDATE_EVENTS',
+  UPDATE_LEVEL_COUNT: 'UPDATE_LEVEL_COUNT',
 };
 
 function GlobalReducer(state, action) {
   switch (action.type) {
-    case actionType.SUBMIT_LOGIN:
-      return { ...state, isFetching: true };
-    case actionType.SUCCESS_LOGIN:
-      return { ...state, token: action.payload, isFetching: false };
-    case actionType.FAIL_LOGIN:
-      return { ...state, errorMessage: action.payload, isFetching: false };
+    case actionType.UPDATE_EVENTS:
+      return { ...state, events: action.payload };
+    case actionType.UPDATE_LEVEL_COUNT:
+      return { ...state, countForLevel: { ...state.countForLevel, ...action.payload } };
     default:
       return state;
   }

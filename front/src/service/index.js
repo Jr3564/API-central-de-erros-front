@@ -1,4 +1,6 @@
 export { default as localStorageP } from './localStorage';
 export { default as userDataValidation } from './userDataValidation';
-export { default as APIRouts } from './APIRouts';
-export { default as fetchApi } from './fetchApi';
+export { APIRouts, fetchApi } from './api';
+export {
+  GlobalContext, GlobalProvider, actionType, GlobalReducer,
+} from './context';

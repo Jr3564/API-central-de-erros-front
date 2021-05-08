@@ -9,10 +9,11 @@ const validation = ({ email, password }) => (
   userDataValidation.email(email) && userDataValidation.password(password)
 );
 
+const INITIAL_STATE = {
+  email: '', password: '', isLoading: false, errorUser: false,
+};
+
 export default function Login() {
-  const INITIAL_STATE = {
-    email: '', password: '', isLoading: false, errorUser: false,
-  };
   const [state, setState] = useState(INITIAL_STATE);
   const history = useHistory();
   const { email, password } = state;
