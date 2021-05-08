@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react';
-import { ScreenCounter, ScreenEvents } from '../components';
+import { ScreenCounter, ScreenEvents, Filters } from '../components';
 import {
   APIRouts, fetchApi, GlobalContext, localStorageP, actionType,
 } from '../service';
@@ -52,6 +52,7 @@ export default function Dashboard() {
         <ScreenCounter level="info" />
       </div>
       <ScreenEvents />
+      <Filters />
     </div>
   );
 }

@@ -4,8 +4,9 @@
   margin-top: 50px;
 }
 
-.eventContainer {
-  justify-content: center;
+.eventsSorter {
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .eventContainer span {
