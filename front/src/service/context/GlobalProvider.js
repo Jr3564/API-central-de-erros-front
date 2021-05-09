@@ -10,11 +10,15 @@ const initialStateAPI = {
     warning: 0,
     info: 0,
   },
+  filters: {
+    date: '',
+    level: '',
+    origin: '',
+  },
 };
 
 export default function GlobalProvider({ children }) {
   const [APIState, dispatch] = useReducer(GlobalReducer, initialStateAPI);
-
   return (
     <GlobalContext.Provider value={{ dispatch, APIState }}>
       {children}

@@ -2,6 +2,7 @@ const actionType = {
   UPDATE_EVENTS: 'UPDATE_EVENTS',
   UPDATE_LEVEL_COUNT: 'UPDATE_LEVEL_COUNT',
   SORT_EVENTS: 'SORT_EVENTS',
+  SET_FILTER: 'SET_FILTER',
 };
 
 const sortBy = (array, type) => array.sort((a, b) => {
@@ -21,6 +22,8 @@ function GlobalReducer(state, action) {
         ...state,
         events: sortBy(state.events, action.payload),
       };
+    case actionType.SET_FILTER:
+      return { ...state, filters: { ...state.filters, ...action.payload } };
     default:
       return state;
   }
