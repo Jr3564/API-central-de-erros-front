@@ -1,13 +1,31 @@
-import React, { useContext } from 'react';
-import { GlobalContext, actionType } from '../../service';
+import React, { useContext, useState, useEffect } from 'react';
+import { GlobalContext, actionType, filterDataValidation } from '../../service';
 import './screenEvent.css';
 
 export default function ScreenEvents() {
-  const { APIState: { events }, dispatch } = useContext(GlobalContext);
+  const { APIState: { events, filters }, dispatch } = useContext(GlobalContext);
+  const [eventList, setList] = useState([]);
 
   const sort = ({ target: { id } }) => {
-    dispatch({ type: actionType, payload: id });
+    dispatch({ type: actionType.SORT_EVENTS, payload: id });
   };
+
+  const filterEvents = () => {
+    setList(events);
+    if (filters.date) {
+      setList((state) => filterDataValidation.date(filters.date, state));
+    }
+    if (filters.level.length) {
+      setList((state) => filterDataValidation.level(filters.level, state));
+    }
+    if (filters.origin) {
+      setList((state) => filterDataValidation.origin(filters.origin, state));
+    }
+  };
+
+  useEffect(() => {
+    filterEvents();
+  }, [filters, events]);
 
   return (
     <div className="eventsContainer">
@@ -22,7 +40,7 @@ export default function ScreenEvents() {
         </thead>
         <tbody>
           {
-            events.map((event) => (
+            eventList.map((event) => (
               <tr key={event.id} className={`${event.level}Event eventContainer`}>
                 <td>{event.level}</td>
                 <td>{event.description}</td>
