@@ -1,48 +1,47 @@
 import React, { useContext } from 'react';
-import { GlobalContext, actionType } from '../../service';
-
-const removeDuplicates = (array) => array
-  .reduce((acc, crr) => (acc.includes(crr) ? acc : [...acc, crr]), []);
+import { GlobalContext, actionType, removeDuplicateOf } from '../../service';
 
 const action = {
-  date: (value) => ({ type: actionType.SET_FILTER, payload: { date: value } }),
-  level: (value) => ({ type: actionType.SET_FILTER, payload: { level: value } }),
-  origin: (value) => ({ type: actionType.SET_FILTER, payload: { origin: value } }),
+  date: (value) => ({ type: actionType.FILTER_DATE, payload: value }),
+  level: (value) => ({ type: actionType.FILTER_LEVEL, payload: value }),
+  origin: (value) => ({ type: actionType.FILTER_ORIGIN, payload: value }),
 };
 
 export default function Filters() {
   const { APIState: { events }, dispatch } = useContext(GlobalContext);
-  const origins = removeDuplicates(events.map(({ origin }) => origin));
+  const origins = removeDuplicateOf(events.map(({ origin }) => origin));
+
   return (
     <div>
       <label htmlFor="date">
         Data
-        <input type="date" onChange={({ target: { value } }) => dispatch(action.date(value))} />
+        <input type="date" onChange={(e) => dispatch(action.date(e.target.value))} />
       </label>
+
       <div
-        id="level"
-        onChange={({ target: { id: value } }) => dispatch(action.level(value))}
+        onChange={(e) => dispatch(action.level(e.target.id))}
       >
         <label htmlFor="info">
+          <input type="checkbox" value="level" id="info" />
           Info
-          <input type="checkbox" id="info" />
         </label>
         <label htmlFor="error">
+          <input type="checkbox" value="level" id="error" />
           Error
-          <input type="checkbox" id="error" />
         </label>
         <label htmlFor="warning">
+          <input type="checkbox" value="level" id="warning" />
           Warning
-          <input type="checkbox" id="warning" />
         </label>
       </div>
-      <select onChange={({ target: { value } }) => dispatch(action.origin(value))}>
+
+      <select onChange={(e) => dispatch(action.origin(e.target.value))} id="origin">
         <option>Origem do evento</option>
         {
-            origins.map((origin) => (
-              <option key={origin} value={origin}>{origin}</option>
-            ))
-          }
+          origins.map((origin) => (
+            <option key={origin} value={origin}>{origin}</option>
+          ))
+        }
       </select>
     </div>
   );

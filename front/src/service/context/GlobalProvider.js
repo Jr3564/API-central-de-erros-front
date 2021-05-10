@@ -12,7 +12,7 @@ const initialStateAPI = {
   },
   filters: {
     date: '',
-    level: '',
+    level: [],
     origin: '',
   },
 };
