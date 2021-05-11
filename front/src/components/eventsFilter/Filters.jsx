@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
-import { GlobalContext, actionType, removeDuplicateOf } from '../../service';
+import { GlobalContext, actionType } from '../../service';
+import { removeDuplicatOf } from '../../utils';
 
 const action = {
   date: (value) => ({ type: actionType.FILTER_DATE, payload: value }),
@@ -9,7 +10,7 @@ const action = {
 
 export default function Filters() {
   const { APIState: { events }, dispatch } = useContext(GlobalContext);
-  const origins = removeDuplicateOf(events.map(({ origin }) => origin));
+  const origins = removeDuplicatOf(events.map(({ origin }) => origin));
 
   return (
     <div>

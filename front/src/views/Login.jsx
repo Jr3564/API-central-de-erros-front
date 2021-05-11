@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
-import { APIRouts, localStorageP, fetchApi } from '../service';
+import { APIRouts, fetchApi } from '../service';
 import { Loading, LoginForm, Message } from '../components';
+import { localStorageP } from '../utils';
 
 export default function Login() {
   const [state, setState] = useState({ isLoading: false, loggedIn: false, loginError: false });

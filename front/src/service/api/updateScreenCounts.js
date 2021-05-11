@@ -1,6 +1,7 @@
-import { APIRouts, fetchApi } from './api';
-import { actionType } from './context';
-import localStorageP from './localStorage';
+import APIRouts from './APIRouts';
+import fetchApi from './fetchApi';
+import { actionType } from '../context';
+import { localStorageP } from '../../utils';
 
 const defaultLevels = ['error', 'warning', 'info'];
 
