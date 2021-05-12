@@ -37,7 +37,7 @@ export default function Filters() {
       </div>
 
       <select onChange={(e) => dispatch(action.origin(e.target.value))} id="origin">
-        <option></option>
+        <option> </option>
         {
           origins.map((origin) => (
             <option key={origin} value={origin}>{origin}</option>

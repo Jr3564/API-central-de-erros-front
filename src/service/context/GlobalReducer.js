@@ -3,6 +3,7 @@ const actionType = {
   UPDATE_LEVEL_COUNT: 'UPDATE_LEVEL_COUNT',
   ORDER_EVENTS: 'ORDER_EVENTS',
   CHANGE_DIRECTION_OF_EVENTS: 'CHANGE_DIRECTION_OF_EVENTS',
+  SHOW_MORE_EVENTS: 'SHOW_MORE_EVENTS',
   FILTER_DATE: 'FILTER_DATE',
   FILTER_LEVEL: 'FILTER_LEVEL',
   FILTER_ORIGIN: 'FILTER_ORIGIN',
@@ -34,6 +35,11 @@ function GlobalReducer(state, action) {
       return {
         ...state,
         order: { ...state.order, direction: state.order.direction === 'ASC' ? 'DESC' : 'ASC' }
+      };
+    case actionType.SHOW_MORE_EVENTS:
+      return {
+        ...state,
+        order: { ...state.order, pageSize: state.order.pageSize + action.payload }
       };
     case actionType.FILTER_DATE:
       return { ...state, filters: { ...state.filters, date: action.payload } };
