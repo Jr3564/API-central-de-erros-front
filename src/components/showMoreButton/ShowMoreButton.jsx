@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import { actionType, GlobalContext } from '../../service';
 
+import './ShowMoreButton'
+
 export default function ShowMoreButton() {
   const { dispatch } = useContext(GlobalContext);
 
@@ -10,6 +12,6 @@ export default function ShowMoreButton() {
   };
 
   return (
-    <button type="button" onClick={ showMore }>Mostar mais</button>
+    <button type="button" onClick={ showMore } id="showMore">Mostar mais</button>
   );
 }

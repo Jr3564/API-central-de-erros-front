@@ -7,6 +7,7 @@ const actionType = {
   FILTER_DATE: 'FILTER_DATE',
   FILTER_LEVEL: 'FILTER_LEVEL',
   FILTER_ORIGIN: 'FILTER_ORIGIN',
+  CLEAR_FILTERS: 'CLEAR_FILTERS',
 };
 
 const filterLevel = (state, action) => {
@@ -47,6 +48,13 @@ function GlobalReducer(state, action) {
       return filterLevel(state, action);
     case actionType.FILTER_ORIGIN:
       return { ...state, filters: { ...state.filters, origin: action.payload } };
+    case actionType.CLEAR_FILTERS:
+      return { ...state,filters: {
+        date: '',
+        level: [],
+        origin: '',
+      } , 
+      };
     default:
       return state;
   }

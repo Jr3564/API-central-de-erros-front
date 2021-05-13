@@ -12,8 +12,12 @@ export default function Filters() {
   const { APIState: { events }, dispatch } = useContext(GlobalContext);
   const origins = removeDuplicatOf(events.map(({ origin }) => origin));
 
+  const clear = () => {
+    dispatch({ type: actionType.CLEAR_FILTERS });
+  }
+  
   return (
-    <div>
+    <>
       <label htmlFor="date">
         Data
         <input type="date" onChange={(e) => dispatch(action.date(e.target.value))} />
@@ -44,6 +48,7 @@ export default function Filters() {
           ))
         }
       </select>
-    </div>
+      <button type="button" onClick={ clear }>Limpar Filtros</button>
+    </>
   );
 }

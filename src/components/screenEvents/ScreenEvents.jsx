@@ -25,22 +25,20 @@ export default function ScreenEvents() {
   }, [filterEvents]);
 
   return (
-    <div className="eventsContainer">
-      <table>
-        <OrderBar />
-        <tbody>
-          {
-            eventList.map((event) => (
-              <tr key={event.id} className={`${event.level}Event eventContainer`}>
-                <td>{event.level}</td>
-                <td>{event.description}</td>
-                <td>{event.origin}</td>
-                <td>{event.eventDate}</td>
-              </tr>
-            ))
-          }
-        </tbody>
-      </table>
-    </div>
+    <table>
+      <OrderBar />
+      <tbody>
+        {
+          eventList.map((event) => (
+            <tr key={event.id} className={`${event.level}Event eventContainer`}>
+              <td>{event.level}</td>
+              <td>{event.description}</td>
+              <td>{event.origin}</td>
+              <td>{event.eventDate}</td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
   );
 }
