@@ -7,7 +7,7 @@ export default function ShowMoreButton() {
   const { dispatch } = useContext(GlobalContext);
 
   const showMore = () => {
-    // dispatch({ type: actionType.NEXT_PAGE, payload: });
+    // dispatch({ type: actionType.NEXT_PAGE, payload: 1 });
     dispatch({ type: actionType.SHOW_MORE_EVENTS, payload: 1 });
   };
 
