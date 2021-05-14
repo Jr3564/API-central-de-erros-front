@@ -14,9 +14,9 @@
 }
 
 .warningEvent {
-  background-color: #ff9800;
+  background-color: #f44336;
 }
 
 .errorEvent {
-  background-color: #f44336;
+  background-color: #ff9800;
 }

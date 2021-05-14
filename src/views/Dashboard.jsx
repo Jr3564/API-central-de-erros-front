@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import { ScreenCounter, ScreenEvents, Filters, ShowMoreButton } from '../components';
 import { GlobalContext, updateScreenCounts, updateScreenEvents } from '../service';
 
-import './dashboard.css';
+import './css/dashboard.css';
 
 export default function Dashboard() {
   const { dispatch, APIState: { order } } = useContext(GlobalContext);

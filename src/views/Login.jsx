@@ -4,7 +4,7 @@ import { APIRouts, fetchApi } from '../service';
 import { Loading, LoginForm, Message } from '../components';
 import { localStorageP } from '../utils';
 
-import './login.css';
+import './css/login.css';
 
 export default function Login() {
   const [state, setState] = useState({ isLoading: false, loggedIn: false, loginError: false });
