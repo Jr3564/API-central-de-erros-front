@@ -13,22 +13,15 @@ export default function Dashboard() {
   }, [dispatch, order]);
 
   return (
-    <div className="dashboardClass">
+    <div className="dashboard-container">
       <div className="panelCountLevels">
         <ScreenCounter level="warning" />
         <ScreenCounter level="error" />
         <ScreenCounter level="info" />
       </div>
-      <div className="filtersContainer">
-        <Filters />
-      </div>
-      <div className="eventsContainer">
-        <ScreenEvents />
-      </div>
-      <div className="showMoreContainer">
-        <ShowMoreButton />
-      </div>
+      <Filters />
+      <ScreenEvents />
+      <ShowMoreButton />
     </div>
-
   );
 }

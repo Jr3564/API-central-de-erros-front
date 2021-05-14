@@ -1,13 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Alert } from 'react-bootstrap';
 
-export default function Message({ message, className }) {
+import './message.css';
+
+export default function Message({ message, variant }) {
   return (
-    <span className={className}>{message}</span>
+    <Alert variant={variant} className="message">
+      {message}
+    </Alert>
   );
 }
 
 Message.propTypes = {
   message: PropTypes.string.isRequired,
-  className: PropTypes.string.isRequired,
+  variant: PropTypes.string.isRequired,
 };

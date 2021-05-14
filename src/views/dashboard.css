@@ -1,37 +1,8 @@
-.dashboardClass {
+.dashboard-container {
+  height: 80vh;
   display: flex;
-  padding: 15px;
   flex-direction: row;
-  flex-wrap: wrap;
-}
-
-.panelCountLevels {
-  display: flex;
-  width: 100%;
-  flex-direction: row-reverse;
-}
-
-.eventsContainer {
-  margin-top: 30px;
-  width: 80%;
-}
-
-.filtersContainer {
-  margin-top: 50px;
-  width: 20%;
-}
-
-.showMoreContainer {
-  display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  width: 100%;
-}
-
-.showMoreContainer > button {
-  background: #ed1941;
-  border: none;
-  margin: 5px solid white;
-  width: 30%;
-  height: 30px;
+  flex-wrap: wrap;
 }

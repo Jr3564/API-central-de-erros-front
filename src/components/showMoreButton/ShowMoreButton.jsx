@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { actionType, GlobalContext } from '../../service';
 
-import './ShowMoreButton'
+import './showMoreButton.css'
 
 export default function ShowMoreButton() {
   const { dispatch } = useContext(GlobalContext);

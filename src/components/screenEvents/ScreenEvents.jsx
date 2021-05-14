@@ -1,6 +1,8 @@
 import React, { useContext, useState, useEffect, useCallback } from 'react';
 import { GlobalContext, filterDataValidation } from '../../service';
 import OrderBar from './OrderBar';
+import { Table } from 'react-bootstrap';
+
 import './screenEvent.css';
 
 export default function ScreenEvents() {
@@ -25,20 +27,22 @@ export default function ScreenEvents() {
   }, [filterEvents]);
 
   return (
-    <table>
-      <OrderBar />
-      <tbody>
-        {
-          eventList.map((event) => (
-            <tr key={event.id} className={`${event.level}Event eventContainer`}>
-              <td>{event.level}</td>
-              <td>{event.description}</td>
-              <td>{event.origin}</td>
-              <td>{event.eventDate}</td>
-            </tr>
-          ))
-        }
-      </tbody>
-    </table>
+    <div className="eventsContainer">
+      <Table striped bordered hover>
+        <OrderBar />
+        <tbody>
+          {
+            eventList.map((event) => (
+              <tr key={event.id} className={`${event.level}Event eventContainer`}>
+                <td>{event.level}</td>
+                <td>{event.description}</td>
+                <td>{event.origin}</td>
+                <td>{event.eventDate}</td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </Table>
+    </div>
   );
 }

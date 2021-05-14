@@ -1,8 +1,15 @@
+.panelCountLevels {
+  display: flex;
+  padding: 30px;
+  width: 100%;
+  flex-direction: row-reverse;
+}
+
 .warningClass {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #b100009c;
+  background-color: #f44336;
   width: 100px;
   height: 50px;
   margin: 0px 20px;
@@ -17,7 +24,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #ffc107;
+  background-color: #ff9800;
   width: 100px;
   height: 50px;
   margin: 0px 20px;
@@ -32,7 +39,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #17a2b8;
+  background-color: #2196f3;
   width: 100px;
   height: 50px;
   margin: 0px 20px;

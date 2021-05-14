@@ -1,18 +1,22 @@
+.eventsContainer {
+  margin-top: 30px;
+  width: 80%;
+}
+
 .eventsSorter {
   justify-content: center;
 }
 
 .eventContainer span {
 }
-
 .infoEvent {
-  background-color: #17a2b8;
+  background-color: #2196f3;
 }
 
 .warningEvent {
-  background-color: #ffc107;
+  background-color: #ff9800;
 }
 
 .errorEvent {
-  background-color: #b100009c;
+  background-color: #f44336;
 }

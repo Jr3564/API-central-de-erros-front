@@ -2,6 +2,8 @@ import React, { useContext } from 'react';
 import { GlobalContext, actionType } from '../../service';
 import { removeDuplicatOf } from '../../utils';
 
+import './filtersStyles.css'
+
 const action = {
   date: (value) => ({ type: actionType.FILTER_DATE, payload: value }),
   level: (value) => ({ type: actionType.FILTER_LEVEL, payload: value }),
@@ -17,7 +19,7 @@ export default function Filters() {
   }
   
   return (
-    <>
+    <div className="filters-container">
       <label htmlFor="date">
         Data
         <input type="date" onChange={(e) => dispatch(action.date(e.target.value))} />
@@ -49,6 +51,6 @@ export default function Filters() {
         }
       </select>
       <button type="button" onClick={ clear }>Limpar Filtros</button>
-    </>
+    </div>
   );
 }
