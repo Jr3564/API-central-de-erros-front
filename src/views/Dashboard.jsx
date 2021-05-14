@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react';
-import { ScreenCounter, ScreenEvents, Filters } from '../components';
+import { ScreenCounter, ScreenEvents, Filters, ShowMoreButton } from '../components';
 import { GlobalContext, updateScreenCounts, updateScreenEvents } from '../service';
 
 import './dashboard.css';
@@ -15,12 +15,20 @@ export default function Dashboard() {
   return (
     <div className="dashboardClass">
       <div className="panelCountLevels">
-        <ScreenCounter level="error" />
         <ScreenCounter level="warning" />
+        <ScreenCounter level="error" />
         <ScreenCounter level="info" />
       </div>
-      <ScreenEvents />
-      <Filters />
+      <div className="filtersContainer">
+        <Filters />
+      </div>
+      <div className="eventsContainer">
+        <ScreenEvents />
+      </div>
+      <div className="showMoreContainer">
+        <ShowMoreButton />
+      </div>
     </div>
+
   );
 }

@@ -1,0 +1,25 @@
+.eventsOrder button {
+  background: none;
+  border: none;
+}
+
+.eventsOrder {
+  align-items: stretch;
+}
+
+.eventsOrder th,
+td {
+  align-items: center;
+}
+
+table {
+  width: 100%;
+  border-top: 2px solid white;
+  border-collapse: collapse;
+}
+
+.eventsContainer table,
+th,
+td {
+  border-top: 2px solid white;
+}
