@@ -20,12 +20,14 @@ export default function Filters() {
   
   return (
     <div className="filters-container">
-      <label htmlFor="date">
-        Data
+      <div className="date-container">
+        <label htmlFor="date">
+          Data:
+        </label>
         <input type="date" onChange={(e) => dispatch(action.date(e.target.value))} />
-      </label>
-
-      <div>
+      </div>
+      <div className="level-container">
+        <h7>Level:</h7>
         <label htmlFor="info">
           <input
             type="checkbox"
@@ -57,15 +59,17 @@ export default function Filters() {
           Warning
         </label>
       </div>
-
-      <select onChange={(e) => dispatch(action.origin(e.target.value))} id="origin">
-        <option> </option>
-        {
-          origins.map((origin) => (
-            <option key={origin} value={origin}>{origin}</option>
-          ))
-        }
-      </select>
+      <div className="origin-container">
+        <h7>Origem:</h7>
+        <select onChange={(e) => dispatch(action.origin(e.target.value))} id="origin">
+          <option> </option>
+          {
+            origins.map((origin) => (
+              <option key={origin} value={origin}>{origin}</option>
+            ))
+          }
+        </select>
+      </div>
       <button type="button" onClick={ clear }>Limpar Filtros</button>
     </div>
   );

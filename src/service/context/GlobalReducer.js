@@ -1,6 +1,7 @@
 const actionType = {
   UPDATE_EVENTS: 'UPDATE_EVENTS',
   UPDATE_LEVEL_COUNT: 'UPDATE_LEVEL_COUNT',
+  REQUEST_EVENTS_BY_ID: 'REQUEST_EVENTS_BY_ID',
   ORDER_EVENTS: 'ORDER_EVENTS',
   CHANGE_DIRECTION_OF_EVENTS: 'CHANGE_DIRECTION_OF_EVENTS',
   SHOW_MORE_EVENTS: 'SHOW_MORE_EVENTS',
@@ -24,6 +25,8 @@ const filterLevel = (state, action) => {
 function GlobalReducer(state, action) {
   switch (action.type) {
     case actionType.UPDATE_EVENTS:
+      return { ...state, events: action.payload };
+    case actionType.REQUEST_EVENTS_BY_ID:
       return { ...state, events: action.payload };
     case actionType.UPDATE_LEVEL_COUNT:
       return { ...state, countForLevel: { ...state.countForLevel, ...action.payload } };

@@ -1,14 +1,10 @@
 .eventsContainer {
-  margin-top: 30px;
   width: 80%;
+  position: fixed;
+  right: 25px;
+  top: 10vw;
 }
 
-.eventsSorter {
-  justify-content: center;
-}
-
-.eventContainer span {
-}
 .infoEvent {
   background-color: #2196f3;
 }

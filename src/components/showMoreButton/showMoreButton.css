@@ -4,4 +4,6 @@
   margin: 5px solid white;
   width: 30%;
   height: 30px;
+  position: fixed;
+  bottom: 0px;
 }

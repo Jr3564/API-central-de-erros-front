@@ -14,11 +14,11 @@ export default function Dashboard() {
 
   return (
     <div className="dashboard-container">
-      <div className="panelCountLevels">
-        <ScreenCounter level="warning" />
-        <ScreenCounter level="error" />
-        <ScreenCounter level="info" />
-      </div>
+        <div className="panelCountLevels">
+          <ScreenCounter level="warning" />
+          <ScreenCounter level="error" />
+          <ScreenCounter level="info" />
+        </div>
       <Filters />
       <ScreenEvents />
       <ShowMoreButton />
