@@ -21,8 +21,6 @@ export default function Filters() {
   return (
     <div className="filters-container">
       <div className="date-container">
-        <label htmlFor="date">
-        </label>
         <input type="date" onChange={(e) => dispatch(action.date(e.target.value))} />
       </div>
       <div className="level-container">

@@ -1,8 +1,8 @@
 .eventsContainer {
   width: 80%;
   position: fixed;
-  right: 25px;
-  top: 10vw;
+  right: 40px;
+  top: 8vw;
 }
 
 .infoEvent {
@@ -15,4 +15,13 @@
 
 .errorEvent {
   background-color: #ff9800;
+}
+
+@media screen and (max-width: 1130px) {
+  .eventsContainer {
+    position: static;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
 }
