@@ -5,7 +5,6 @@
   top: 8vw;
   display: flex;
   flex-direction: column;
-  border: 1px solid black;
 }
 
 .filters-container div,
