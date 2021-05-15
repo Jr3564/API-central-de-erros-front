@@ -18,9 +18,10 @@ const initialStateAPI = {
   order: {
     direction: 'ASC',
     pageNumber: 0,
-    pageSize: 10,
+    pageSize: 5,
     sortBy: ''
-  }
+  },
+  totalPages: 1,
 };
 
 export default function GlobalProvider({ children }) {

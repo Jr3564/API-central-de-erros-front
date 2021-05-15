@@ -5,6 +5,7 @@ const actionType = {
   ORDER_EVENTS: 'ORDER_EVENTS',
   CHANGE_DIRECTION_OF_EVENTS: 'CHANGE_DIRECTION_OF_EVENTS',
   SHOW_MORE_EVENTS: 'SHOW_MORE_EVENTS',
+  REQUEST_PAGE: 'REQUEST_PAGE',
   FILTER_DATE: 'FILTER_DATE',
   FILTER_LEVEL: 'FILTER_LEVEL',
   FILTER_ORIGIN: 'FILTER_ORIGIN',
@@ -34,6 +35,12 @@ function GlobalReducer(state, action) {
       return {
         ...state,
         order: { ...state.order, sortBy: action.payload }
+      };
+    // Recebe uma action com a chave payload, que é um objeto com as chaves pageSize e pageNumber.
+    case actionType.REQUEST_PAGE:
+      return {
+        ...state,
+        order: { ...state.order, ...action.payload }
       };
     case actionType.CHANGE_DIRECTION_OF_EVENTS:
       return {
