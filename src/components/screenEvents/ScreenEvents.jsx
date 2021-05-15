@@ -4,6 +4,7 @@ import OrderBar from './OrderBar';
 import { Table } from 'react-bootstrap';
 
 import './screenEvent.css';
+import PaginationButtons from '../paginationButtons/PaginationButtons';
 
 export default function ScreenEvents() {
   const { APIState: { events, filters } } = useContext(GlobalContext);
@@ -27,13 +28,13 @@ export default function ScreenEvents() {
   }, [filterEvents]);
 
   return (
-    <div className="eventsContainer">
+    <div className="events-container">
       <Table striped bordered hover>
         <OrderBar />
         <tbody>
           {
             eventList.map((event) => (
-              <tr key={event.id} className={`${event.level}Event eventContainer`}>
+              <tr key={event.id} className={`${event.level}Event event-container`}>
                 <td>{event.level}</td>
                 <td>{event.description}</td>
                 <td>{event.origin}</td>
@@ -43,6 +44,7 @@ export default function ScreenEvents() {
           }
         </tbody>
       </Table>
+      <PaginationButtons />
     </div>
   );
 }

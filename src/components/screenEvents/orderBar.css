@@ -1,8 +1,12 @@
 .eventsOrder button {
-  background: #fff;
+  background-color: #fff;
   border: 0px;
   margin: 0px;
   padding: 0px;
+  width: 100%;
   height: 100%;
-  align-items: center;
+}
+
+.eventsOrder button:hover {
+  text-decoration: underline;
 }

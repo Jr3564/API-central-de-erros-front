@@ -1,9 +1,9 @@
-.eventsContainer {
+.events-container {
   width: 80%;
   position: fixed;
-  right: 40px;
+  left: 30px;
   top: 8vw;
-  box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.315);
+  box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.315);
 }
 
 .infoEvent {
@@ -19,10 +19,9 @@
 }
 
 @media screen and (max-width: 1130px) {
-  .eventsContainer {
+  .events-container {
     position: static;
     width: 100%;
-    display: flex;
     justify-content: flex-end;
   }
 }

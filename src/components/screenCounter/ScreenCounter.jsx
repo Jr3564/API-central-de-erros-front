@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import './screenCounterStyle.css';
 import { actionType, GlobalContext } from '../../service';
 
-
-
 export default function ScreenCounter({ level }) {
   const { APIState: { countForLevel }, dispatch } = useContext(GlobalContext);
 

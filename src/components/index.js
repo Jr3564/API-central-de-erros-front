@@ -5,3 +5,4 @@ export { default as Loading } from './loading/Loading';
 export { default as Message } from './message/Message';
 export { default as LoginForm } from './forms/LoginForm';
 export { default as ShowMoreButton } from './showMoreButton/ShowMoreButton';
+export { default as PaginationButtons } from './paginationButtons/PaginationButtons';

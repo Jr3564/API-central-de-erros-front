@@ -8,7 +8,7 @@ export default function OrderBar() {
 
   const orderBy = ({ target: { value }}) => {
     dispatch({ type: actionType.ORDER_EVENTS, payload: value });
-    dispatch({ type: actionType.SHOW_MORE_EVENTS, payload: 5 });
+    dispatch({ type: actionType.CHANGE_DIRECTION_OF_EVENTS });
   };
 
   return (

@@ -1,0 +1,14 @@
+.pagination-buttons-container {
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+  width: 100%;
+  position: relative;
+  left: 0px;
+}
+
+.pagination-buttons-container button {
+  border: 0px;
+  margin: 0px 10px 10px 10px;
+  height: 35px;
+}
