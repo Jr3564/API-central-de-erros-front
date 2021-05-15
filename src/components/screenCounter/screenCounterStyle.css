@@ -16,11 +16,11 @@
   justify-content: flex-end;
 }
 
-.warningClass {
+.errorClass {
   background-color: #f44336;
 }
 
-.errorClass {
+.warningClass {
   background-color: #ff9800;
 }
 
@@ -28,13 +28,13 @@
   background-color: #2196f3;
 }
 
-.warningClass:hover {
+.errorClass:hover {
   background-color: #d32f2f;
   box-shadow: 1px 5px 10px #f4433688;
   transition: 0.5s;
 }
 
-.errorClass:hover {
+.warningClass:hover {
   background-color: #f57c00;
   box-shadow: 1px 5px 10px #ff9800;
   transition: 0.5s;
