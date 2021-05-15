@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react';
-import { ScreenCounter, ScreenEvents, Filters, ShowMoreButton } from '../components';
+import { ScreenCounter, ScreenEvents, Filters } from '../components';
 import { GlobalContext, updateScreenCounts, updateScreenEvents } from '../service';
 
 import './css/dashboard.css';
@@ -21,7 +21,6 @@ export default function Dashboard() {
         </div>
       <Filters />
       <ScreenEvents />
-      <ShowMoreButton />
     </div>
   );
 }

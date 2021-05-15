@@ -22,12 +22,10 @@ export default function Filters() {
     <div className="filters-container">
       <div className="date-container">
         <label htmlFor="date">
-          Data:
         </label>
         <input type="date" onChange={(e) => dispatch(action.date(e.target.value))} />
       </div>
       <div className="level-container">
-        <h7>Level:</h7>
         <label htmlFor="info">
           <input
             type="checkbox"
@@ -60,9 +58,8 @@ export default function Filters() {
         </label>
       </div>
       <div className="origin-container">
-        <h7>Origem:</h7>
         <select onChange={(e) => dispatch(action.origin(e.target.value))} id="origin">
-          <option> </option>
+          <option>Origem</option>
           {
             origins.map((origin) => (
               <option key={origin} value={origin}>{origin}</option>

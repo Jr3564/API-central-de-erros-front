@@ -1,14 +1,20 @@
 .filters-container {
-  width: 20vw;
-  height: 50vh;
+  width: 15vw;
   position: fixed;
-  left: 2vw;
-  top: 7vw;
+  left: 0px;
+  top: 10vw;
+  display: flex;
+  flex-direction: column;
 }
 
 .filters-container div,
 button {
-  margin-top: 30px;
+  margin: 10px 0px 10px 15px;
+}
+
+.filters-container button {
+  background: white;
+  width: 70%;
 }
 
 .date-container {

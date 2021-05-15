@@ -18,7 +18,7 @@ const initialStateAPI = {
   order: {
     direction: 'ASC',
     pageNumber: 0,
-    pageSize: 5,
+    pageSize: 10,
     sortBy: ''
   }
 };
