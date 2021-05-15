@@ -5,6 +5,7 @@
   width: 100px;
   height: 50px;
   margin-right: 40px;
+  box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.315);
 }
 
 .panelCountLevels {

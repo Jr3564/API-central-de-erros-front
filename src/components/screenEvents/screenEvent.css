@@ -3,6 +3,7 @@
   position: fixed;
   right: 40px;
   top: 8vw;
+  box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.315);
 }
 
 .infoEvent {

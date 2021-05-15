@@ -5,6 +5,7 @@
   top: 8vw;
   display: flex;
   flex-direction: column;
+  box-shadow: 5px 2px 5px rgba(0, 0, 0, 0.315);
 }
 
 .filters-container div,
