@@ -21,7 +21,7 @@ const initialStateAPI = {
     pageSize: 5,
     sortBy: ''
   },
-  totalPages: 1,
+  totalPages: 0,
 };
 
 export default function GlobalProvider({ children }) {

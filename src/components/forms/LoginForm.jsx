@@ -43,7 +43,7 @@ export default function LoginForm({ submit }) {
             <label htmlFor="password">Password</label>
           </div>
           <input
-            className="w-100 btn btn-lg btn-primary"
+            className="btn btn-outline-danger"
             type="submit"
             value="Entrar"
             disabled={!isValid(user)}

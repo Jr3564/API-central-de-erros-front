@@ -10,6 +10,7 @@ const actionType = {
   FILTER_LEVEL: 'FILTER_LEVEL',
   FILTER_ORIGIN: 'FILTER_ORIGIN',
   CLEAR_FILTERS: 'CLEAR_FILTERS',
+  PAGES_NUMBER: 'PAGES_NUMBER',
 };
 
 const filterLevel = (state, action) => {
@@ -36,7 +37,11 @@ function GlobalReducer(state, action) {
         ...state,
         order: { ...state.order, sortBy: action.payload }
       };
-    // Recebe uma action com a chave payload, que é um objeto com as chaves pageSize e pageNumber.
+    case actionType.PAGES_NUMBER:
+      return {
+        ...state,
+        totalPages: action.payload,
+      };
     case actionType.REQUEST_PAGE:
       return {
         ...state,

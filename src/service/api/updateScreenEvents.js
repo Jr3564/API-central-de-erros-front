@@ -14,5 +14,8 @@ export default function updateScreenEvents(dispatch, order) {
 
   const URI = APIRouts.EVENTS_ORDERED(order);
   fetchApi.get(URI, body(token))
-    .then(({ data }) => dispatch({ type: actionType.UPDATE_EVENTS, payload: data.content }));
+    .then(({ data }) => {
+      dispatch({ type: actionType.UPDATE_EVENTS, payload: data.content })
+      dispatch({ type: actionType.PAGES_NUMBER, payload: +data.totalPages })
+    });
 }
