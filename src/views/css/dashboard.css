@@ -1,8 +1,10 @@
 .dashboard-container {
-  height: 80vh;
+  margin: 10px;
+  height: 97vh;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  background-color: #fff;
 }
