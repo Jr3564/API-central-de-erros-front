@@ -10,6 +10,7 @@ export default function ScreenCounter({ level }) {
 
   const dispatchLevel = (id) => {
     dispatch({ type: actionType.CLEAR_FILTERS });
+    dispatch({ type: actionType.SHOW_MORE_EVENTS, payload: 5 });
     dispatch({ type: actionType.FILTER_LEVEL, payload: id });
   }
 
