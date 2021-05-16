@@ -10,8 +10,12 @@ export default function Loading({ animation = "border", variant, className="load
   );
 }
 
+Loading.defaultProps = {
+  className: "loading",
+};
+
 Loading.propTypes = {
   animation: PropTypes.string.isRequired,
-  className: PropTypes.string.isRequired,
+  className: PropTypes.string,
   variant: PropTypes.string.isRequired,
 };
