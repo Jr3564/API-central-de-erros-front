@@ -4,16 +4,15 @@
   font-family: monospace;
   width: 100px;
   height: 50px;
-  margin-right: 40px;
-  box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.315);
+  margin: 30px;
+  box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.315);
 }
 
 .panelCountLevels {
-  position: fixed;
   width: 100%;
-  top: 10px;
   display: flex;
   justify-content: flex-end;
+  order: -3;
 }
 
 .errorClass {
@@ -44,13 +43,4 @@
   background-color: #1976d2;
   box-shadow: 1px 5px 10px #2196f3;
   transition: 0.5s;
-}
-
-@media screen and (max-width: 1130px) {
-  .panelCountLevels {
-    position: static;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
 }

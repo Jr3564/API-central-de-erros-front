@@ -2,14 +2,14 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import './screenCounterStyle.css';
 import { actionType, GlobalContext } from '../../service';
+import { requestEventsByLevel } from '../../service/api';
 
 export default function ScreenCounter({ level }) {
   const { APIState: { countForLevel }, dispatch } = useContext(GlobalContext);
 
-  const dispatchLevel = (id) => {
+  const dispatchLevel = (lvl) => {
     dispatch({ type: actionType.CLEAR_FILTERS });
-    dispatch({ type: actionType.SHOW_MORE_EVENTS, payload: 5 });
-    dispatch({ type: actionType.FILTER_LEVEL, payload: id });
+    requestEventsByLevel(dispatch, lvl);
   }
 
   return (

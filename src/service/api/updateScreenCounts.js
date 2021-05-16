@@ -22,7 +22,7 @@ export default function updateScreenCounts(dispatch, levels = defaultLevels) {
     .then((responses) => {
       responses.forEach(({ status, value }) => {
         if (status === 'fulfilled') {
-          dispatch({ type: actionType.UPDATE_LEVEL_COUNT, payload: value });
+          dispatch({ type: actionType.REQUEST_LEVEL_COUNT, payload: value });
         }
       });
     });

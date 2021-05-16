@@ -7,20 +7,24 @@ import './css/dashboard.css';
 export default function Dashboard() {
   const { dispatch, APIState: { order } } = useContext(GlobalContext);
 
+  const updateEvents = () => {
+    updateScreenEvents(dispatch, order);
+  }
   useEffect(() => {
     updateScreenCounts(dispatch, ['error', 'warning', 'info']);
-    updateScreenEvents(dispatch, order);
+    updateEvents();
   }, [dispatch, order]);
 
   return (
     <div className="dashboard-container">
-        <div className="panelCountLevels">
-          <ScreenCounter level="warning" />
-          <ScreenCounter level="error" />
-          <ScreenCounter level="info" />
-        </div>
-      <Filters />
+      <div className="panelCountLevels">
+        <ScreenCounter level="warning" />
+        <ScreenCounter level="error" />
+        <ScreenCounter level="info" />
+      </div>
       <ScreenEvents />
+      <Filters />
+      <button id="logo" onClick={updateEvents} ><h3>Pigable Jonson</h3></button>
     </div>
   );
 }

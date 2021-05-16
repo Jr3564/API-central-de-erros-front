@@ -9,13 +9,13 @@ const body = (token) => ({
   },
 });
 
-export default function updateScreenEvents(dispatch, order) {
+export default function requestEventsByLevel(dispatch, level) {
   const { access_token: token } = localStorageP.getStorage('token');
 
-  const URI = APIRouts.EVENTS_ORDERED(order);
+  const URI = APIRouts.EVENTS_LEVEL(level);
   fetchApi.get(URI, body(token))
     .then(({ data }) => {
       dispatch({ type: actionType.REQUEST_EVENTS, payload: data.content })
-      dispatch({ type: actionType.PAGES_NUMBER, payload: +data.totalPages })
+      dispatch({ type: actionType.PAGES_NUMBER, payload: -1 })
     });
 }

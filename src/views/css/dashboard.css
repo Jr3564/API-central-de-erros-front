@@ -1,0 +1,23 @@
+#logo > h3 {
+  font-size: 40px;
+  font-family: "Pacifico";
+}
+#logo {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  border: none;
+  background-color: white;
+}
+
+#logo:hover {
+  color: #0c9fa6;
+  transition: 1s;
+}
+
+.dashboard-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
