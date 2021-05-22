@@ -13,12 +13,15 @@ export default function ScreenCounter({ level }) {
   }
 
   return (
-    <button
-      className={`${level}Class count-type`}
-      onClick={ () => dispatchLevel(level) }
-    >
-      <span>{countForLevel[level]}</span>
-    </button>
+      <button
+        className={`${level}Class count-type`}
+        onClick={ () => dispatchLevel(level) }
+      >
+        <span>
+          {countForLevel[level]}
+          <p>{level}</p>
+        </span>
+      </button>
   );
 }
 
